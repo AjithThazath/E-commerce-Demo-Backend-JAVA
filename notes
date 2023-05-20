@@ -1,0 +1,43 @@
+ref: https://github.com/in28minutes/jpa-with-hibernate/tree/master/02-jpa-advanced
+sql command used for dev
+create table product(
+	ID integer not null AUTO_INCREMENT,
+    TITLE varchar(250) not null,
+    IMAGE_URL varchar(250) not null,
+    DESCRIPTION varchar(250) not null,
+    PRICE double not null,
+    quantity integer not null,
+    primary key(ID)
+)
+AUTO_INCREMENT  = 1000;
+
+
+create table user(
+	ID integer not null AUTO_INCREMENT,
+    USERNAME varchar(250) not null,
+    NAME varchar(250) not null,
+    PASSWORD varchar(250) not null,
+    MOBILE_NUMBER long not null,
+    ROLE varchar(250) not null,
+    primary key(ID)
+)
+AUTO_INCREMENT  = 500;
+
+Insert into product values (1,"Angular","www.angular.io","Angular course 2023","499",5);
+
+CART
+create table cart(
+	ID int NOT NULL primary key AUTO_INCREMENT,
+    PRODUCT_ID int not null,
+    USER_ID int not null,
+    CREATED_DATE date not null,
+    QUANTITY int not null,
+    FOREIGN Key(PRODUCT_ID) references product(ID),
+    FOREIGN Key(USER_ID) references user(ID)
+)AUTO_INCREMENT = 9000;
+
+To-do list
+# adding cart,invoice and linking user to products etc (Mapping manny to one,ne to one etc)
+# swagger
+# OTP for order
+# Front-end
